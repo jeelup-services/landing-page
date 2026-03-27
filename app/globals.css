@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+/* ── Brand tokens ───────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --bg-primary:   #111827;   /* Deep Slate  */
+  --bg-secondary: #1F2937;   /* Zinc        */
+  --text-primary: #F9FAFB;   /* Slate White */
+  --accent:       #82F4D6;   /* Astra Teal  */
+  --accent-blue:  #2A48EE;   /* Orbit Blue  */
+  --cta:          #B2F4D6;   /* Astra Teal light */
+
+  /* Fonts */
+  --font-headline: var(--font-inter);
+  --font-body:     var(--font-open-sans);
+  --font-mono:     var(--font-mono);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ── Base ───────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-open-sans), 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headlines use Inter Semibold */
+h1, h2, h3, h4 {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+/* Monospace for code / metrics */
+.font-mono {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+}
+
+/* ── Buttons ────────────────────────────────────────────── */
+.btn-primary {
+  background-color: var(--accent);
+  color: #111827;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 6px;
+  transition: opacity 0.18s;
+  display: inline-block;
+  white-space: nowrap;
+}
+.btn-primary:hover { opacity: 0.88; }
+
+.btn-outline {
+  border: 1.5px solid rgba(249,250,251,0.25);
+  color: var(--text-primary);
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 6px;
+  transition: border-color 0.18s, background-color 0.18s;
+  display: inline-block;
+  white-space: nowrap;
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  background-color: rgba(130,244,214,0.06);
+}
+
+/* ── Nav link (light navbar) ────────────────────────────── */
+.nav-link {
+  font-family: var(--font-open-sans), 'Open Sans', sans-serif;
+  font-size: 0.875rem;
+  color: #4B5563;
+  transition: color 0.15s;
+  text-decoration: none;
+}
+.nav-link:hover { color: #111827; }
+
+/* ── Utility ────────────────────────────────────────────── */
+.section-tag {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
