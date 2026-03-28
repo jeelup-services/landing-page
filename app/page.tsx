@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { UserCheck, Zap, Lightbulb, Languages, Rocket, Users, Globe } from "lucide-react";
+import { UserCheck, Zap, Lightbulb, Languages, Rocket, Users, Globe, Code2, Smartphone, Brain } from "lucide-react";
 
 // ─── Brand tokens (mirrors globals.css) ──────────────────────────────────────
 // bg-primary:   #111827  bg-secondary: #1F2937
@@ -172,25 +172,15 @@ function Hero() {
           </div>
         </div>
 
-        {/* ── Right — photo placeholder ── */}
-        <div
-          className="relative rounded-xl overflow-hidden aspect-[4/3] w-full flex flex-col items-center justify-center gap-2"
-          style={{ backgroundColor: "#F3F4F6", border: "1px solid #E5E7EB" }}
-        >
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" strokeWidth="1.2">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
-          <p
-            className="text-sm"
-            style={{
-              fontFamily: "var(--font-open-sans), 'Open Sans', sans-serif",
-              color: "#9CA3AF",
-            }}
-          >
-            Team photo
-          </p>
+        {/* ── Right — hero photo ── */}
+        <div className="relative rounded-xl overflow-hidden aspect-[4/3] w-full">
+          <Image
+            src="/hero.png"
+            alt="Jeelup team collaborating"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
       </div>
@@ -265,17 +255,14 @@ function Solution() {
   return (
     <section className="py-24 px-6" style={{ backgroundColor: "#111827" }}>
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Image placeholder */}
-        <div
-          className="relative rounded-2xl overflow-hidden aspect-[4/3] flex flex-col items-center justify-center gap-2 order-2 lg:order-1"
-          style={{ backgroundColor: "#1F2937" }}
-        >
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="1.2">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
-          <p className="text-sm" style={{ color: "#4B5563" }}>Team collaboration photo</p>
+        {/* Meet Jeelup photo */}
+        <div className="relative rounded-2xl overflow-hidden aspect-[4/3] order-2 lg:order-1">
+          <Image
+            src="/meet-jeelup.png"
+            alt="Jeelup team meeting"
+            fill
+            className="object-cover"
+          />
         </div>
 
         {/* Text */}
@@ -356,46 +343,72 @@ function WhyJeelup() {
 
 // ─── Section 5 — Roles ───────────────────────────────────────────────────────
 
+
 function Roles() {
   const categories = [
-    { title: "Software Engineering", roles: ["Frontend Development", "Backend Development", "Full-Stack Development"] },
-    { title: "Mobile Development",   roles: ["iOS / Android", "Cross-Platform Development"] },
-    { title: "AI & Data",            roles: ["AI Engineering", "Machine Learning", "Data Engineering"] },
+    {
+      icon: <Code2 size={26} strokeWidth={1.6} />,
+      title: "Software Engineering",
+      roles: ["Frontend Development", "Backend Development", "Full Stack Development"],
+    },
+    {
+      icon: <Smartphone size={26} strokeWidth={1.6} />,
+      title: "Mobile Development",
+      roles: ["iOS / Android", "Cross-Platform Development", "Mobile UX/UI Design"],
+    },
+    {
+      icon: <Brain size={26} strokeWidth={1.6} />,
+      title: "AI & Data",
+      roles: ["AI Engineering", "Machine Learning", "Data Engineering"],
+    },
   ];
+
   return (
     <section id="talent" className="py-24 px-6" style={{ backgroundColor: "#111827" }}>
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-14">
-          <p className="section-tag mb-3">Talent</p>
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-14 text-center">
           <h2
             className="text-3xl md:text-4xl leading-tight"
-            style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 600, color: "#F9FAFB" }}
+            style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 700, color: "#F9FAFB" }}
           >
-            Engineering Talent Across Key Technologies
+            Engineering Talent Across
+            <br />
+            Key Technologies
           </h2>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {categories.map((cat) => (
             <div
               key={cat.title}
-              className="rounded-xl p-8"
-              style={{ backgroundColor: "#1F2937", border: "1px solid #374151" }}
+              className="rounded-2xl p-9 flex flex-col items-center text-center"
+              style={{ backgroundColor: "#1a2233", border: "1px solid #2a3347" }}
             >
-              <div className="w-1.5 h-8 rounded-full mb-6" style={{ backgroundColor: "#82F4D6" }} />
+              {/* Icon */}
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                style={{ backgroundColor: "#111827", color: "#82F4D6", border: "1px solid #1f3a36" }}
+              >
+                {cat.icon}
+              </div>
+
+              {/* Title */}
               <h3
-                className="mb-5"
+                className="text-lg mb-6"
                 style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 600, color: "#F9FAFB" }}
               >
                 {cat.title}
               </h3>
-              <ul className="space-y-3">
+
+              {/* Roles */}
+              <ul className="space-y-3 flex-1">
                 {cat.roles.map((r) => (
-                  <li key={r} className="flex items-center gap-2.5 text-sm" style={{ color: "#9CA3AF" }}>
-                    <div className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: "#82F4D6" }} />
+                  <li key={r} className="text-[15px]" style={{ color: "#9CA3AF" }}>
                     {r}
                   </li>
                 ))}
               </ul>
+
             </div>
           ))}
         </div>
@@ -445,17 +458,13 @@ function BuiltForStartups() {
           </p>
         </div>
 
-        {/* Image placeholder */}
-        <div
-          className="relative rounded-2xl overflow-hidden aspect-[4/3] flex flex-col items-center justify-center gap-2"
-          style={{ backgroundColor: "#111827" }}
-        >
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="1.2">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
-          <p className="text-sm" style={{ color: "#4B5563" }}>Founders photo</p>
+        <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+          <Image
+            src="/founders.png"
+            alt="Founders collaborating"
+            fill
+            className="object-cover"
+          />
         </div>
       </div>
     </section>
@@ -575,29 +584,29 @@ function Stats() {
 
 function CTA() {
   return (
-    <section id="contact" className="py-24 px-6" style={{ backgroundColor: "#111827" }}>
+    <section id="contact" className="py-24 px-6" style={{ backgroundColor: "#82F4D6" }}>
       <div className="max-w-2xl mx-auto text-center">
-        <p className="section-tag mb-4">Get Started</p>
         <h2
           className="text-3xl md:text-4xl leading-tight mb-5"
-          style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 600, color: "#F9FAFB" }}
+          style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 700, color: "#111827" }}
         >
           Build Your Engineering Team Faster
         </h2>
-        <p className="mb-3 leading-relaxed" style={{ color: "#9CA3AF" }}>
+        <p className="mb-2 leading-relaxed" style={{ color: "#1a3a35" }}>
           Tell us about your project and the type of engineers you need.
         </p>
-        <p className="mb-10 leading-relaxed" style={{ color: "#9CA3AF" }}>
+        <p className="mb-10 leading-relaxed" style={{ color: "#1a3a35" }}>
           Our team will help you find the right talent to accelerate your product development.
         </p>
         <a
           href="mailto:hello@jeelup.com"
-          className="inline-block text-base font-semibold px-10 py-4 rounded-md transition-opacity hover:opacity-90"
+          className="inline-block text-base font-semibold px-10 py-4 rounded-md transition-colors hover:bg-gray-50"
           style={{
-            backgroundColor: "#B2F4D6",
+            backgroundColor: "#ffffff",
             color: "#111827",
             fontFamily: "var(--font-inter), 'Inter', sans-serif",
             fontWeight: 600,
+            border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
           Schedule a Call
@@ -611,38 +620,57 @@ function CTA() {
 
 function TrustSection() {
   return (
-    <section className="py-24 px-6" style={{ backgroundColor: "#1F2937", borderTop: "1px solid #374151" }}>
-      <div className="max-w-3xl mx-auto text-center">
-        <p
-          className="text-xl md:text-2xl leading-relaxed mb-5"
-          style={{ color: "#9CA3AF" }}
-        >
-          Jeelup represents a{" "}
-          <span style={{ color: "#F9FAFB", fontWeight: 600 }}>
-            new generation of engineers building alongside founders.
-          </span>
-        </p>
-        <p className="leading-relaxed mb-14" style={{ color: "#9CA3AF" }}>
-          Our teams combine strong technical expertise with curiosity, commitment, and the drive to help companies create impactful products.
-        </p>
-        <p
-          className="text-2xl mb-7"
-          style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 700, color: "#F9FAFB" }}
-        >
-          Start Building With Jeelup
-        </p>
-        <a
-          href="#contact"
-          className="inline-block text-base font-semibold px-10 py-4 rounded-md transition-opacity hover:opacity-90"
-          style={{
-            backgroundColor: "#82F4D6",
-            color: "#111827",
-            fontFamily: "var(--font-inter), 'Inter', sans-serif",
-            fontWeight: 600,
-          }}
-        >
-          Book a Call
-        </a>
+    <section>
+      {/* Top — white, two columns */}
+      <div className="px-8 py-16" style={{ backgroundColor: "#ffffff" }}>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left — text */}
+          <div>
+            <h2
+              className="text-2xl md:text-3xl leading-snug mb-5"
+              style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 700, color: "#111827" }}
+            >
+              Jeelup represents a new generation of engineers building alongside founders.
+            </h2>
+            <p className="text-base leading-relaxed" style={{ color: "#6B7280" }}>
+              Our teams combine strong technical expertise with curiosity, commitment, and the drive to help companies create impactful products.
+            </p>
+          </div>
+
+          {/* Right — B&W photo */}
+          <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+            <Image
+              src="/start-building.png"
+              alt="Jeelup team"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom — light blue-gray strip */}
+      <div className="px-8 py-12" style={{ backgroundColor: "#EFF6F4" }}>
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-6">
+          <h2
+            className="text-3xl md:text-4xl"
+            style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif", fontWeight: 700, color: "#111827" }}
+          >
+            Start Building With Jeelup.
+          </h2>
+          <a
+            href="#contact"
+            className="shrink-0 text-base font-semibold px-8 py-4 rounded-xl transition-opacity hover:opacity-90"
+            style={{
+              backgroundColor: "#82F4D6",
+              color: "#111827",
+              fontFamily: "var(--font-inter), 'Inter', sans-serif",
+              fontWeight: 600,
+            }}
+          >
+            Book a Call
+          </a>
+        </div>
       </div>
     </section>
   );
