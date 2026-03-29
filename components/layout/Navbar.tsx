@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '@/components/ui/Button';
@@ -42,10 +43,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <span className="font-semibold text-xl text-white">
-            Jeel<span className="text-brand-teal">up</span>
-            <span className="text-brand-teal">↗</span>
-          </span>
+          <Image src="/logo.svg" alt="Jeelup" width={120} height={36} className="h-9 w-auto" priority />
         </Link>
 
         {/* Desktop links */}
