@@ -45,6 +45,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${openSans.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
         className="min-h-full font-inter"
         style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif" }}
