@@ -30,7 +30,7 @@ const TRUST = [
 
 export default function HeroSection() {
   return (
-    <section className="h-screen flex items-center pt-20 pb-8 relative overflow-hidden">
+    <section className="bg-[#111827] h-screen flex items-center pt-20 pb-8 relative overflow-hidden">
 
       {/* ── Background ── */}
       <div

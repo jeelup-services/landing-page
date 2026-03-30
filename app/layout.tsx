@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Open_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,14 @@ export const metadata: Metadata = {
     "Jeelup deploys skilled engineers who integrate directly into your team. Connecting GCC startups with top Algerian engineering talent.",
   keywords:
     "engineering talent, GCC, UAE, Algeria, tech outsourcing, startup engineers",
+  openGraph: {
+    title: "Jeelup | Build Your Engineering Team",
+    description:
+      "Deploy skilled GCC-aligned engineers within days. Connecting GCC startups with top Algerian engineering talent.",
+    url: "https://jeelup.com",
+    siteName: "Jeelup",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -41,6 +50,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif" }}
       >
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
