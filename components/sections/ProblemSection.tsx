@@ -32,7 +32,7 @@ export default function ProblemSection() {
             </h2>
 
             <p className="mt-3 text-white/60 text-base">
-              Growing companies across the GCC face the same hiring challenges:
+              Growing companies face the same hiring challenges:
             </p>
 
             <ul className="mt-4 space-y-2">

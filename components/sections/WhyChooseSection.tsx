@@ -17,7 +17,7 @@ const CARDS = [
   {
     Icon: Globe2,
     title: 'Multilingual Collaboration',
-    body: 'Our engineers communicate fluently in Arabic, English, and French — making collaboration across the GCC seamless.',
+    body: 'Our engineers communicate fluently in Arabic, English, and French — making collaboration seamless.',
   },
   {
     Icon: Zap,

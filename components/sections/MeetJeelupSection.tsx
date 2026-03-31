@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, MapPin, Zap, Rocket } from 'lucide-react';
 
 const PILLS = [
-  { label: 'GCC-focused',      Icon: MapPin  },
+  { label: 'Impact-focused',    Icon: MapPin  },
   { label: 'Deployed in days', Icon: Zap     },
   { label: 'Startup-tested',   Icon: Rocket  },
 ];

@@ -18,7 +18,7 @@ export default function WhoWeWorkWithSection() {
           Who Jeelup Works With
         </h2>
         <p className="font-[family-name:var(--font-opensans)] text-white/60 text-base text-center mt-4">
-          We partner with ambitious teams across the GCC region.
+          We partner with ambitious teams.
         </p>
 
         {/* Cards */}
@@ -40,12 +40,6 @@ export default function WhoWeWorkWithSection() {
           ))}
         </div>
 
-        {/* Region tag */}
-        <div className="flex justify-center mt-10">
-          <span className="inline-flex items-center gap-2 bg-brand-teal/8 border border-brand-teal/20 rounded-full px-6 py-2.5 text-sm text-brand-teal font-[family-name:var(--font-jetbrains)]">
-            UAE · Saudi Arabia · Qatar · Oman
-          </span>
-        </div>
       </div>
     </section>
   );

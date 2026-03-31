@@ -71,8 +71,8 @@ export default function HeroSection() {
             {/* Subheadline */}
             <motion.div variants={itemVariants}>
               <p className="mt-4 font-[family-name:var(--font-opensans)] text-lg text-white/60 leading-relaxed max-w-xl">
-                Jeelup connects startups and companies across the GCC with highly
-                skilled engineers who work as dedicated members of your team.
+                Jeelup connects startups and companies with highly skilled
+                engineers who work as dedicated members of your team.
               </p>
             </motion.div>
 
