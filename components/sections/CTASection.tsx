@@ -68,7 +68,7 @@ export default function CTASection() {
         </motion.p>
 
         <motion.div variants={item} className="mt-10">
-          <Button variant="primary" size="large" href="mailto:hello@jeelup.com">
+          <Button variant="primary" size="large" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">
             Schedule a Call
             <ArrowRight size={18} className="ml-2" />
           </Button>
@@ -109,7 +109,7 @@ export default function CTASection() {
         </motion.p>
 
         <motion.div variants={item} className="mt-6">
-          <Button variant="primary" href="mailto:hello@jeelup.com">
+          <Button variant="primary" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">
             Book a Call
           </Button>
         </motion.div>

@@ -62,7 +62,7 @@ export default function Navbar() {
         {/* Desktop CTA + mobile toggle */}
         <div className="flex items-center gap-4">
           <div className="hidden lg:block">
-            <Button variant="primary" href="#cta">Book a Call</Button>
+            <Button variant="primary" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">Book a Call</Button>
           </div>
 
           <button
@@ -100,7 +100,9 @@ export default function Navbar() {
               <div className="pt-3">
                 <Button
                   variant="primary"
-                  href="#cta"
+                  href="https://calendly.com/jeelup/book-a-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full justify-center"
                   onClick={() => setIsOpen(false)}
                 >

@@ -103,7 +103,7 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <motion.div variants={itemVariants} className="mt-6 flex flex-wrap items-center gap-4">
-              <Button variant="primary"  size="large" href="#cta">Book a Call</Button>
+              <Button variant="primary"  size="large" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">Book a Call</Button>
               <Button variant="outline"  size="large" href="#how-it-works">See How It Works</Button>
             </motion.div>
           </motion.div>
