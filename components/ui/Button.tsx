@@ -4,6 +4,8 @@ type ButtonProps = {
   variant?: "primary" | "outline";
   size?: "default" | "large";
   href?: string;
+  target?: string;
+  rel?: string;
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
@@ -13,6 +15,8 @@ export default function Button({
   variant = "primary",
   size = "default",
   href,
+  target,
+  rel,
   children,
   className = "",
   onClick,
@@ -32,7 +36,7 @@ export default function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes} onClick={onClick}>
+      <a href={href} target={target} rel={rel} className={classes} onClick={onClick}>
         {children}
       </a>
     );
