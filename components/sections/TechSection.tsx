@@ -29,12 +29,12 @@ export default function TechSection() {
   ];
 
   return (
-    <section id="talent" className="bg-[#111827] py-12 lg:py-16">
+    <section id="talent" className="bg-[var(--bg-primary)] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         <h2
           className="font-[family-name:var(--font-inter)] font-semibold
-                     text-2xl lg:text-4xl text-white text-center mb-12"
+                     text-2xl lg:text-4xl text-[var(--text-primary)] text-center mb-12"
         >
           {t('headline')}
         </h2>
@@ -47,7 +47,7 @@ export default function TechSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.12 }}
-              className="bg-[#0D1117] border border-white/8 rounded-2xl p-8 flex flex-col items-center text-center"
+              className="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-2xl p-8 flex flex-col items-center text-center"
             >
               {/* Icon */}
               <div className="bg-brand-teal/10 rounded-xl p-4 mb-4">
@@ -57,7 +57,7 @@ export default function TechSection() {
               {/* Column title */}
               <h3
                 className="font-[family-name:var(--font-inter)] font-semibold
-                           text-base text-white mb-4 text-center"
+                           text-base text-[var(--text-primary)] mb-4 text-center"
               >
                 {title}
               </h3>
@@ -67,7 +67,7 @@ export default function TechSection() {
                 {roles.map((role) => (
                   <p
                     key={role}
-                    className="font-[family-name:var(--font-opensans)] text-sm text-white/60 text-center"
+                    className="font-[family-name:var(--font-opensans)] text-sm text-[var(--text-secondary)] text-center"
                   >
                     {role}
                   </p>
@@ -77,11 +77,11 @@ export default function TechSection() {
               {/* Bottom tech icons + label */}
               <div className="mt-6 flex flex-col items-center gap-2">
                 <div className="flex items-center gap-3">
-                  <Box    size={16} className="text-white/30" />
-                  <Layers size={16} className="text-white/30" />
-                  <Cpu    size={16} className="text-white/30" />
+                  <Box    size={16} className="text-[var(--text-secondary)]" />
+                  <Layers size={16} className="text-[var(--text-secondary)]" />
+                  <Cpu    size={16} className="text-[var(--text-secondary)]" />
                 </div>
-                <p className="font-mono text-xs text-white/20">{techLabel}</p>
+                <p className="font-mono text-xs text-[var(--text-secondary)]">{techLabel}</p>
               </div>
             </motion.div>
           ))}

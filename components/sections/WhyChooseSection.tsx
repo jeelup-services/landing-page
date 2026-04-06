@@ -20,7 +20,7 @@ export default function WhyChooseSection() {
   ];
 
   return (
-    <section id="why-jeelup" className="bg-[#0D1117] py-12 lg:py-16">
+    <section id="why-jeelup" className="bg-[var(--bg-secondary)] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Headline */}
@@ -30,7 +30,7 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="font-[family-name:var(--font-inter)] font-semibold text-center
-                     text-3xl lg:text-5xl text-white mt-2 max-w-2xl mx-auto"
+                     text-3xl lg:text-5xl text-[var(--text-primary)] mt-2 max-w-2xl mx-auto"
         >
           {t('headline')}
         </motion.h2>
@@ -48,7 +48,7 @@ export default function WhyChooseSection() {
               key={title}
               variants={cardVariants}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-brand-zinc border border-white/8 rounded-2xl p-6
+              className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6
                          group cursor-default transition-all duration-300
                          hover:border-brand-teal/35
                          hover:shadow-[0_0_40px_rgba(130,244,214,0.05)]"
@@ -60,12 +60,12 @@ export default function WhyChooseSection() {
               </div>
 
               {/* Title */}
-              <h3 className="font-[family-name:var(--font-inter)] font-semibold text-xl text-white mb-3 text-start">
+              <h3 className="font-[family-name:var(--font-inter)] font-semibold text-xl text-[var(--text-primary)] mb-3 text-start">
                 {title}
               </h3>
 
               {/* Body */}
-              <p className="font-[family-name:var(--font-opensans)] text-sm text-white/60 leading-relaxed text-start">
+              <p className="font-[family-name:var(--font-opensans)] text-sm text-[var(--text-secondary)] leading-relaxed text-start">
                 {body}
               </p>
 

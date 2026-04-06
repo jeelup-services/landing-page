@@ -18,7 +18,7 @@ export default function FounderSection() {
   ];
 
   return (
-    <section id="about" className="bg-[#0D1117] py-12 lg:py-16">
+    <section id="about" className="bg-[var(--bg-secondary)] py-12 lg:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 items-start">
           {/* Left column */}
@@ -30,15 +30,15 @@ export default function FounderSection() {
             dir={isRTL ? 'rtl' : 'ltr'}
             className="w-full"
           >
-            <h2 className={`font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-white leading-tight ${isRTL ? 'text-right' : 'text-left'}`}>
+            <h2 className={`font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-[var(--text-primary)] leading-tight ${isRTL ? 'text-right' : 'text-left'}`}>
               {t("headline")}
             </h2>
 
             <div className="space-y-4 mt-6">
-              <p className={`font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className={`font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
                 {t("p1")}
               </p>
-              <p className={`font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className={`font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
                 {t("p2")}
               </p>
             </div>
@@ -57,12 +57,12 @@ export default function FounderSection() {
                     size={18}
                     className="text-brand-teal flex-shrink-0 mt-0.5"
                   />
-                  <span className="text-white/70 text-base">{item}</span>
+                  <span className="text-[var(--text-secondary)] text-base">{item}</span>
                 </li>
               ))}
             </ul>
 
-            <p className={`mt-8 font-[family-name:var(--font-opensans)] text-white/60 text-base ${isRTL ? 'text-right' : 'text-left'}`}>
+            <p className={`mt-8 font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base ${isRTL ? 'text-right' : 'text-left'}`}>
               {t("closing")}
             </p>
           </motion.div>

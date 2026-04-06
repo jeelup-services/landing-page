@@ -16,7 +16,7 @@ export default function MeetJeelupSection() {
   ];
 
   return (
-    <section id="meet-jeelup" className="bg-[#111827] py-12 lg:py-16">
+    <section id="meet-jeelup" className="bg-[var(--bg-primary)] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:gap-16 items-center">
 
@@ -27,7 +27,7 @@ export default function MeetJeelupSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-brand-zinc border border-brand-teal/15 rounded-2xl p-8 relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
+            <div className="bg-[var(--bg-card)] border border-brand-teal/15 rounded-2xl p-8 relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
               {/* Top-left glow */}
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-teal/8 rounded-full blur-2xl pointer-events-none" />
 
@@ -41,9 +41,9 @@ export default function MeetJeelupSection() {
               />
 
               {/* Trust tag */}
-              <div className="mt-6 pt-6 border-t border-white/8 flex items-center gap-2">
+              <div className="mt-6 pt-6 border-t border-[var(--border-color)] flex items-center gap-2">
                 <CheckCircle2 size={16} className="text-brand-teal flex-shrink-0" />
-                <span className="text-sm text-white/50">{t('trust')}</span>
+                <span className="text-sm text-[var(--text-secondary)]">{t('trust')}</span>
               </div>
             </div>
           </motion.div>
@@ -59,19 +59,19 @@ export default function MeetJeelupSection() {
           >
             <h2
               className="mt-4 font-[family-name:var(--font-inter)] font-semibold
-                         text-3xl lg:text-5xl text-white leading-tight"
+                         text-3xl lg:text-5xl text-[var(--text-primary)] leading-tight"
             >
               {t('headline')}
             </h2>
 
             <div className="space-y-4 mt-6">
-              <p className="font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed">
+              <p className="font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base leading-relaxed">
                 {t('p1')}
               </p>
-              <p className="font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed">
+              <p className="font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base leading-relaxed">
                 {t('p2')}
               </p>
-              <p className="font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed">
+              <p className="font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base leading-relaxed">
                 {t('p3')}
               </p>
             </div>
@@ -81,8 +81,8 @@ export default function MeetJeelupSection() {
               {PILLS.map(({ label, Icon }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-2 bg-white/5 border border-white/10
-                             rounded-full px-4 py-2 text-sm text-white/60"
+                  className="flex items-center gap-2 bg-[var(--border-color)] border border-[var(--border-color)]
+                             rounded-full px-4 py-2 text-sm text-[var(--text-secondary)]"
                 >
                   <Icon size={14} className="text-brand-teal" />
                   <span>{label}</span>

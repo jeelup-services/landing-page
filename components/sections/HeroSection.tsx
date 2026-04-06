@@ -31,7 +31,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="bg-[#111827] h-screen flex items-center pt-20 pb-8 relative overflow-hidden">
+    <section className="bg-[var(--bg-primary)] h-screen flex items-center pt-20 pb-8 relative overflow-hidden">
 
       {/* ── Background ── */}
       <div
@@ -63,7 +63,7 @@ export default function HeroSection() {
               <h1
                 className="font-[family-name:var(--font-inter)] font-semibold
                            text-3xl sm:text-4xl lg:text-5xl
-                           text-white leading-[1.08] text-start"
+                           text-[var(--text-primary)] leading-[1.08] text-start"
               >
                 {t('headline')}
               </h1>
@@ -71,7 +71,7 @@ export default function HeroSection() {
 
             {/* Subheadline */}
             <motion.div variants={itemVariants}>
-              <p className="mt-4 font-[family-name:var(--font-opensans)] text-lg text-white/60 leading-relaxed max-w-xl text-start">
+              <p className="mt-4 font-[family-name:var(--font-opensans)] text-lg text-[var(--text-secondary)] leading-relaxed max-w-xl text-start">
                 {t('subheadline')}
               </p>
             </motion.div>
@@ -82,8 +82,8 @@ export default function HeroSection() {
                 <span
                   key={badge}
                   className="inline-flex items-center gap-2 text-xs font-semibold
-                             bg-white/5 border border-white/10 rounded-full
-                             px-4 py-2 text-white/70"
+                             bg-[var(--border-color)] border border-[var(--border-color)] rounded-full
+                             px-4 py-2 text-[var(--text-secondary)]"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-teal flex-shrink-0" />
                   {badge}
@@ -96,7 +96,7 @@ export default function HeroSection() {
               {TRUST.map(({ icon, label }) => (
                 <div key={label} className="flex items-center gap-3">
                   <span className="text-brand-teal flex-shrink-0">{icon}</span>
-                  <span className="text-sm text-white/70">{label}</span>
+                  <span className="text-sm text-[var(--text-secondary)]">{label}</span>
                 </div>
               ))}
             </motion.div>
@@ -124,7 +124,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           >
-            <div className="relative h-[420px] rounded-2xl overflow-hidden border border-white/10">
+            <div className="relative h-[420px] rounded-2xl overflow-hidden border border-[var(--border-color)]">
               <Image
                 src="/hero.png"
                 alt="Jeelup engineering team collaborating"

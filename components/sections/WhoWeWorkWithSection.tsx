@@ -15,12 +15,12 @@ export default function WhoWeWorkWithSection() {
   ];
 
   return (
-    <section className="bg-[#111827] py-12 lg:py-16 relative overflow-hidden">
+    <section className="bg-[var(--bg-primary)] py-12 lg:py-16 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-white text-center">
+        <h2 className="font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-[var(--text-primary)] text-center">
           {t("headline")}
         </h2>
-        <p className="font-[family-name:var(--font-opensans)] text-white/60 text-base text-center mt-4">
+        <p className="font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base text-center mt-4">
           {t("subheadline")}
         </p>
 
@@ -29,14 +29,14 @@ export default function WhoWeWorkWithSection() {
           {clients.map((client, index) => (
             <motion.div
               key={client.label}
-              className="flex flex-col items-center text-center p-8 rounded-2xl bg-brand-zinc border border-white/8 hover:border-brand-teal/30 hover:scale-[1.03] transition-all duration-300"
+              className="flex flex-col items-center text-center p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-brand-teal/30 hover:scale-[1.03] transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
               <client.icon size={32} className="text-brand-teal mb-4" />
-              <span className="font-[family-name:var(--font-inter)] font-semibold text-base text-white">
+              <span className="font-[family-name:var(--font-inter)] font-semibold text-base text-[var(--text-primary)]">
                 {client.label}
               </span>
             </motion.div>

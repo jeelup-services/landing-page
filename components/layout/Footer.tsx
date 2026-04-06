@@ -1,9 +1,16 @@
+'use client';
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const navLinks = [
     { label: t("howItWorks"), href: "#how-it-works" },
@@ -14,7 +21,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0D1117] py-10 px-6">
+    <footer className="bg-[var(--bg-secondary)] py-10 px-6">
       {/* Gradient border */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-teal/20 to-transparent mb-10" />
 
@@ -23,8 +30,8 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center gap-6 lg:flex-row lg:items-center lg:justify-between lg:text-start lg:gap-8 rtl:lg:flex-row-reverse">
           {/* Left — logo + tagline */}
           <div>
-            <Image src="/logo.svg" alt="Jeelup" width={100} height={32} className="h-8 w-auto" />
-            <p className="mt-1 text-xs text-white/30 font-[family-name:var(--font-opensans)]">
+            <Image src={mounted && resolvedTheme === 'light' ? '/jeelup.svg' : '/logo.svg'} alt="Jeelup" width={100} height={32} className="h-8 w-auto" />
+            <p className={`mt-1 text-xs font-[family-name:var(--font-opensans)] ${mounted && resolvedTheme === 'light' ? 'text-gray-500' : 'text-white/30'}`}>
               {t("tagline")}
             </p>
           </div>
@@ -35,7 +42,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/40 hover:text-white transition-colors"
+                className={`text-sm transition-colors ${mounted && resolvedTheme === 'light' ? 'text-gray-500 hover:text-gray-900' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
               >
                 {link.label}
               </Link>
@@ -44,7 +51,7 @@ export default function Footer() {
 
           {/* Right — copyright */}
           <div className="lg:text-end">
-            <p className="text-xs text-white/20 font-[family-name:var(--font-opensans)]">
+            <p className={`text-xs font-[family-name:var(--font-opensans)] ${mounted && resolvedTheme === 'light' ? 'text-gray-400' : 'text-[var(--text-secondary)]'}`}>
               {t("copyright")}
             </p>
           </div>

@@ -12,18 +12,36 @@
   --font-jetbrains:    'JetBrains Mono', monospace;
 }
 
+:root {
+  --bg-primary:   #111827;
+  --bg-secondary: #0D1117;
+  --bg-card:      #1F2937;
+  --text-primary:   #F9FAFB;
+  --text-secondary: rgba(249,250,251,0.6);
+  --border-color:   rgba(255,255,255,0.08);
+}
+
+.light {
+  --bg-primary:   #FFFFFF;
+  --bg-secondary: #F3F4F6;
+  --bg-card:      #FFFFFF;
+  --text-primary:   #111827;
+  --text-secondary: #6B7280;
+  --border-color:   rgba(0,0,0,0.08);
+}
+
 html {
   scroll-behavior: smooth;
-  background-color: #111827;
+  background-color: var(--bg-primary);
 }
 
 body {
-  background-color: #111827;
-  color: #F9FAFB;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #111827; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: #82F4D6; border-radius: 3px; }

@@ -18,7 +18,7 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section id="problem" className="bg-[#0D1117] py-12 lg:py-16">
+    <section id="problem" className="bg-[var(--bg-secondary)] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-20 items-center">
 
@@ -32,13 +32,13 @@ export default function ProblemSection() {
           >
             <h2
               className={`mt-2 font-[family-name:var(--font-inter)] font-semibold
-                         text-3xl lg:text-5xl text-white leading-tight
+                         text-3xl lg:text-5xl text-[var(--text-primary)] leading-tight
                          ${isRTL ? 'text-right' : 'text-start'}`}
             >
               {t('headline')}
             </h2>
 
-            <p className={`mt-3 text-white/60 text-base ${isRTL ? 'text-right' : 'text-start'}`}>
+            <p className={`mt-3 text-[var(--text-secondary)] text-base ${isRTL ? 'text-right' : 'text-start'}`}>
               {t('intro')}
             </p>
 
@@ -59,13 +59,13 @@ export default function ProblemSection() {
                   >
                     {icon}
                   </span>
-                  <span className="text-white/70 text-base pt-1 text-start">{text}</span>
+                  <span className="text-[var(--text-secondary)] text-base pt-1 text-start">{text}</span>
                 </motion.li>
               ))}
             </ul>
 
-            <div className="mt-6 bg-white/[0.03] border border-white/[0.08] rounded-xl p-5">
-              <p className={`text-white/60 text-sm leading-relaxed ${isRTL ? 'text-right' : 'text-start'}`}>
+            <div className="mt-6 bg-[var(--border-color)] border border-[var(--border-color)] rounded-xl p-5">
+              <p className={`text-[var(--text-secondary)] text-sm leading-relaxed ${isRTL ? 'text-right' : 'text-start'}`}>
                 {t('closing')}
               </p>
             </div>

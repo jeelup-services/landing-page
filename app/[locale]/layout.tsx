@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "../globals.css";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRTL ? "rtl" : "ltr"}
+      suppressHydrationWarning
       className={`${inter.variable} ${openSans.variable} ${jetbrainsMono.variable} ${notoSansArabic.variable}`}
     >
       <head>
@@ -79,10 +81,12 @@ export default async function LocaleLayout({
             : "var(--font-inter), 'Inter', sans-serif",
         }}
       >
-        <NextIntlClientProvider messages={messages}>
-          {children}
-          <ScrollToTop />
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <ScrollToTop />
+          </NextIntlClientProvider>
+        </ThemeProvider>
         {/* TODO: Replace G-XXXXXXXXXX with real GA4 ID from Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}

@@ -23,7 +23,7 @@ export default function CTASection() {
   const t = useTranslations("cta");
 
   return (
-    <section id="cta" className="bg-[#111827] py-24 lg:py-32 relative overflow-hidden">
+    <section id="cta" className="bg-[var(--bg-primary)] py-24 lg:py-32 relative overflow-hidden">
       {/* Background decorations */}
       <motion.div
         className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-brand-teal/6 rounded-full blur-[100px] pointer-events-none"
@@ -55,14 +55,14 @@ export default function CTASection() {
         {/* First block */}
         <motion.h2
           variants={item}
-          className="font-[family-name:var(--font-inter)] font-semibold text-4xl lg:text-6xl text-white leading-tight mt-4"
+          className="font-[family-name:var(--font-inter)] font-semibold text-4xl lg:text-6xl text-[var(--text-primary)] leading-tight mt-4"
         >
           {t("headline")}
         </motion.h2>
 
         <motion.p
           variants={item}
-          className="mt-6 font-[family-name:var(--font-opensans)] text-white/60 text-lg leading-relaxed max-w-2xl mx-auto"
+          className="mt-6 font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-lg leading-relaxed max-w-2xl mx-auto"
         >
           {t("subheadline")}
         </motion.p>
@@ -74,34 +74,34 @@ export default function CTASection() {
           </Button>
         </motion.div>
 
-        <motion.p variants={item} className="mt-4 text-sm text-white/30">
+        <motion.p variants={item} className="mt-4 text-sm text-[var(--text-secondary)]">
           {t("microCopy")}
         </motion.p>
 
         {/* Divider */}
         <motion.div
           variants={item}
-          className="mt-20 mb-20 max-w-xs mx-auto border-t border-white/8"
+          className="mt-20 mb-20 max-w-xs mx-auto border-t border-[var(--border-color)]"
         />
 
         {/* Second block */}
         <motion.p
           variants={item}
-          className="font-[family-name:var(--font-inter)] font-bold text-2xl text-white"
+          className="font-[family-name:var(--font-inter)] font-bold text-2xl text-[var(--text-primary)]"
         >
           Jeel<span className="text-brand-teal">up</span>
         </motion.p>
 
         <motion.p
           variants={item}
-          className="mt-4 font-[family-name:var(--font-opensans)] text-white/50 text-base max-w-lg mx-auto"
+          className="mt-4 font-[family-name:var(--font-opensans)] text-[var(--text-secondary)] text-base max-w-lg mx-auto"
         >
           {t("trustLine")}
         </motion.p>
 
         <motion.p
           variants={item}
-          className="mt-8 font-[family-name:var(--font-inter)] font-semibold text-2xl text-white"
+          className="mt-8 font-[family-name:var(--font-inter)] font-semibold text-2xl text-[var(--text-primary)]"
         >
           {t("finalHeadline")}
         </motion.p>

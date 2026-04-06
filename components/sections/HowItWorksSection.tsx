@@ -18,9 +18,9 @@ export default function HowItWorksSection() {
   const displaySteps = isRTL ? [...steps].reverse() : steps;
 
   return (
-    <section id="how-it-works" className="bg-[#0D1117] py-12 lg:py-16">
+    <section id="how-it-works" className="bg-[var(--bg-secondary)] py-12 lg:py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-white text-center mb-16">
+        <h2 className="font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-[var(--text-primary)] text-center mb-16">
           {t("headline")}
         </h2>
 
@@ -46,13 +46,13 @@ export default function HowItWorksSection() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 viewport={{ once: true }}
               >
-                <div className="w-12 h-12 rounded-full bg-brand-teal text-brand-slate font-bold text-base flex items-center justify-center border-4 border-[#0D1117] relative z-10">
+                <div className="w-12 h-12 rounded-full bg-brand-teal text-brand-slate font-bold text-base flex items-center justify-center border-4 border-[var(--bg-secondary)] relative z-10">
                   {step.number}
                 </div>
-                <p className="mt-5 font-[family-name:var(--font-inter)] font-semibold text-base text-white">
+                <p className="mt-5 font-[family-name:var(--font-inter)] font-semibold text-base text-[var(--text-primary)]">
                   {step.title}
                 </p>
-                <p className="mt-2 font-[family-name:var(--font-opensans)] text-sm text-white/50 leading-relaxed max-w-[160px] mx-auto">
+                <p className="mt-2 font-[family-name:var(--font-opensans)] text-sm text-[var(--text-secondary)] leading-relaxed max-w-[160px] mx-auto">
                   {step.body}
                 </p>
               </motion.div>
@@ -83,8 +83,8 @@ export default function HowItWorksSection() {
 
               {/* Right side */}
               <div className={index < steps.length - 1 ? "pb-8" : ""}>
-                <p className="font-semibold text-base text-white text-start">{step.title}</p>
-                <p className="text-sm text-white/50 mt-1 leading-relaxed text-start">
+                <p className="font-semibold text-base text-[var(--text-primary)] text-start">{step.title}</p>
+                <p className="text-sm text-[var(--text-secondary)] mt-1 leading-relaxed text-start">
                   {step.body}
                 </p>
               </div>

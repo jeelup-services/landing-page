@@ -5,12 +5,16 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '@/components/ui/Button';
+import ThemeToggle from '@/components/ui/ThemeToggle';
+import { useTheme } from 'next-themes';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, useRouter, usePathname } from '@/i18n/navigation';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen]     = useState(false);
+  const [mounted, setMounted]   = useState(false);
+  const { resolvedTheme } = useTheme();
   const t      = useTranslations('nav');
   const locale = useLocale();
   const isRTL  = locale === 'ar';
@@ -25,6 +29,8 @@ export default function Navbar() {
     { label: t('about'),      href: '#about'        },
     { label: t('contact'),    href: '#cta'          },
   ];
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -45,7 +51,7 @@ export default function Navbar() {
       className={[
         'fixed top-0 left-0 w-full z-50 transition-all duration-300',
         scrolled
-          ? 'bg-brand-slate/90 backdrop-blur-md border-b border-white/5'
+          ? 'bg-[var(--bg-primary)]/90 backdrop-blur-md border-b border-[var(--border-color)]'
           : '',
       ].join(' ')}
     >
@@ -54,7 +60,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <Image src="/logo.svg" alt="Jeelup" width={120} height={36} style={{ width: 'auto', height: '36px' }} priority />
+          <Image src={mounted && resolvedTheme === 'light' ? '/jeelup.svg' : '/logo.svg'} alt="Jeelup" width={120} height={36} style={{ width: 'auto', height: '36px' }} priority />
         </Link>
 
         {/* Desktop links */}
@@ -63,7 +69,7 @@ export default function Navbar() {
             <Link
               key={label}
               href={href}
-              className="text-sm text-white/60 hover:text-white transition-colors duration-200"
+              className={`text-sm transition-colors duration-200 ${mounted && resolvedTheme === 'light' ? 'text-gray-600 hover:text-gray-900' : 'text-white/60 hover:text-white'}`}
             >
               {label}
             </Link>
@@ -73,7 +79,7 @@ export default function Navbar() {
         {/* Desktop CTA + locale switcher + mobile toggle */}
         <div className="flex items-center gap-4">
           {/* Locale switcher */}
-          <div className="hidden lg:flex items-center gap-1 bg-white/5 rounded-full p-1">
+          <div className="hidden lg:flex items-center gap-1 bg-[var(--border-color)] rounded-full p-1">
             {(['en', 'ar'] as const).map((lang) => (
               <button
                 key={lang}
@@ -82,13 +88,15 @@ export default function Navbar() {
                   'px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-200',
                   locale === lang
                     ? 'bg-brand-teal text-brand-slate'
-                    : 'text-white/50 hover:text-white',
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]',
                 ].join(' ')}
               >
                 {lang.toUpperCase()}
               </button>
             ))}
           </div>
+
+          <ThemeToggle />
 
           <div className="hidden lg:block">
             <Button variant="primary" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">
@@ -97,7 +105,7 @@ export default function Navbar() {
           </div>
 
           <button
-            className="lg:hidden text-white/70 hover:text-white transition-colors"
+            className="lg:hidden text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             onClick={() => setIsOpen((v) => !v)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
@@ -115,7 +123,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden overflow-hidden bg-brand-slate border-b border-white/10"
+            className="lg:hidden overflow-hidden bg-[var(--bg-primary)] border-b border-[var(--border-color)]"
           >
             <div className={`px-6 py-4 flex flex-col${isRTL ? ' items-end' : ''}`}>
               {NAV_LINKS.map(({ label, href }) => (
@@ -123,7 +131,7 @@ export default function Navbar() {
                   key={label}
                   href={href}
                   onClick={() => setIsOpen(false)}
-                  className="py-3 text-base text-white/60 hover:text-white transition-colors duration-200"
+                  className={`py-3 text-base transition-colors duration-200 ${mounted && resolvedTheme === 'light' ? 'text-gray-600 hover:text-gray-900' : 'text-white/60 hover:text-white'}`}
                 >
                   {label}
                 </Link>
@@ -139,7 +147,7 @@ export default function Navbar() {
                       'px-4 py-1.5 rounded-full text-sm font-semibold transition-colors duration-200',
                       locale === lang
                         ? 'bg-brand-teal text-brand-slate'
-                        : 'bg-white/5 text-white/50 hover:text-white',
+                        : 'bg-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]',
                     ].join(' ')}
                   >
                     {lang.toUpperCase()}
