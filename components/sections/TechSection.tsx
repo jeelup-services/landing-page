@@ -2,29 +2,32 @@
 
 import { motion } from 'framer-motion';
 import { Code2, Smartphone, Brain, Box, Layers, Cpu } from 'lucide-react';
-
-const COLUMNS = [
-  {
-    Icon: Code2,
-    title: 'Software Engineering',
-    roles: ['Frontend Development', 'Backend Development', 'Full-Stack Development'],
-    techLabel: 'React · Node · TypeScript',
-  },
-  {
-    Icon: Smartphone,
-    title: 'Mobile Development',
-    roles: ['iOS / Android', 'Cross-Platform Development'],
-    techLabel: 'Swift · Kotlin · Flutter',
-  },
-  {
-    Icon: Brain,
-    title: 'AI & Data',
-    roles: ['AI Engineering', 'Machine Learning', 'Data Engineering'],
-    techLabel: 'Python · PyTorch · SQL',
-  },
-];
+import { useTranslations } from 'next-intl';
 
 export default function TechSection() {
+  const t = useTranslations('tech');
+
+  const COLUMNS = [
+    {
+      Icon: Code2,
+      title: t('col1Title'),
+      roles: [t('col1Role1'), t('col1Role2'), t('col1Role3')],
+      techLabel: 'React · Node · TypeScript',
+    },
+    {
+      Icon: Smartphone,
+      title: t('col2Title'),
+      roles: [t('col2Role1'), t('col2Role2')],
+      techLabel: 'Swift · Kotlin · Flutter',
+    },
+    {
+      Icon: Brain,
+      title: t('col3Title'),
+      roles: [t('col3Role1'), t('col3Role2'), t('col3Role3')],
+      techLabel: 'Python · PyTorch · SQL',
+    },
+  ];
+
   return (
     <section id="talent" className="bg-[#111827] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -33,7 +36,7 @@ export default function TechSection() {
           className="font-[family-name:var(--font-inter)] font-semibold
                      text-2xl lg:text-4xl text-white text-center mb-12"
         >
-          Engineering Talent Across Key Technologies
+          {t('headline')}
         </h2>
 
         <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
@@ -59,7 +62,7 @@ export default function TechSection() {
                 {title}
               </h3>
 
-              {/* Roles — plain text lines */}
+              {/* Roles */}
               <div className="space-y-2 flex-1">
                 {roles.map((role) => (
                   <p
@@ -74,9 +77,9 @@ export default function TechSection() {
               {/* Bottom tech icons + label */}
               <div className="mt-6 flex flex-col items-center gap-2">
                 <div className="flex items-center gap-3">
-                  <Box   size={16} className="text-white/30" />
+                  <Box    size={16} className="text-white/30" />
                   <Layers size={16} className="text-white/30" />
-                  <Cpu   size={16} className="text-white/30" />
+                  <Cpu    size={16} className="text-white/30" />
                 </div>
                 <p className="font-mono text-xs text-white/20">{techLabel}</p>
               </div>

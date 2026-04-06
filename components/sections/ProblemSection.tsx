@@ -3,15 +3,20 @@
 import { motion } from 'framer-motion';
 import { Search, Clock, BadgeDollarSign, BarChart2 } from 'lucide-react';
 import Image from 'next/image';
-
-const PAINS = [
-  { icon: <Search          size={16} />, text: 'Finding strong engineers quickly'              },
-  { icon: <Clock           size={16} />, text: 'Managing recruitment delays'                   },
-  { icon: <BadgeDollarSign size={16} />, text: 'Keeping development costs under control'       },
-  { icon: <BarChart2       size={16} />, text: 'Maintaining team productivity while scaling'   },
-];
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function ProblemSection() {
+  const t      = useTranslations('problem');
+  const locale = useLocale();
+  const isRTL  = locale?.startsWith('ar') ?? false;
+
+  const PAINS = [
+    { icon: <Search          size={16} />, text: t('pain1') },
+    { icon: <Clock           size={16} />, text: t('pain2') },
+    { icon: <BadgeDollarSign size={16} />, text: t('pain3') },
+    { icon: <BarChart2       size={16} />, text: t('pain4') },
+  ];
+
   return (
     <section id="problem" className="bg-[#0D1117] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -19,27 +24,29 @@ export default function ProblemSection() {
 
           {/* ── Left column ── */}
           <motion.div
+            className={isRTL ? 'text-right' : ''}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <h2
-              className="mt-2 font-[family-name:var(--font-inter)] font-semibold
-                         text-3xl lg:text-5xl text-white leading-tight"
+              className={`mt-2 font-[family-name:var(--font-inter)] font-semibold
+                         text-3xl lg:text-5xl text-white leading-tight
+                         ${isRTL ? 'text-right' : 'text-start'}`}
             >
-              Hiring Developers Shouldn&apos;t Slow Down Your Company
+              {t('headline')}
             </h2>
 
-            <p className="mt-3 text-white/60 text-base">
-              Growing companies face the same hiring challenges:
+            <p className={`mt-3 text-white/60 text-base ${isRTL ? 'text-right' : 'text-start'}`}>
+              {t('intro')}
             </p>
 
             <ul className="mt-4 space-y-2">
               {PAINS.map(({ icon, text }, index) => (
                 <motion.li
                   key={text}
-                  className="flex items-start gap-4 group cursor-default"
+                  className={`flex items-start gap-4 group cursor-default ${isRTL ? 'text-right' : ''}`}
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -52,17 +59,14 @@ export default function ProblemSection() {
                   >
                     {icon}
                   </span>
-                  <span className="text-white/70 text-base pt-1">{text}</span>
+                  <span className="text-white/70 text-base pt-1 text-start">{text}</span>
                 </motion.li>
               ))}
             </ul>
 
             <div className="mt-6 bg-white/[0.03] border border-white/[0.08] rounded-xl p-5">
-              <p className="text-white/60 text-sm leading-relaxed">
-                Traditional outsourcing often leads to disconnected teams and slow
-                execution. Founders need engineers who work{' '}
-                <span className="text-white font-semibold">WITH them</span>, not
-                outside their company.
+              <p className={`text-white/60 text-sm leading-relaxed ${isRTL ? 'text-right' : 'text-start'}`}>
+                {t('closing')}
               </p>
             </div>
           </motion.div>
@@ -75,7 +79,7 @@ export default function ProblemSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             <Image
-              src="/problem.png"
+              src={isRTL ? '/problem_ar.png' : '/problem.png'}
               alt="Traditional recruitment vs Jeelup direct integration"
               width={600}
               height={500}

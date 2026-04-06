@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Users, Zap, Lightbulb, Globe2 } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import { useTranslations, useLocale } from 'next-intl';
 
 const containerVariants = {
   hidden: {},
@@ -15,20 +16,20 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 };
 
-const BADGES = [
-  'Startup-minded builders',
-  'Fast deployment',
-  'Seamless collaboration',
-];
-
-const TRUST = [
-  { icon: <Users      size={18} />, label: 'Dedicated engineers'      },
-  { icon: <Zap        size={18} />, label: 'Fast team deployment'      },
-  { icon: <Lightbulb  size={18} />, label: 'Startup mindset'           },
-  { icon: <Globe2     size={18} />, label: 'Arabic · English · French' },
-];
-
 export default function HeroSection() {
+  const t     = useTranslations('hero');
+  const locale = useLocale();
+  const isRTL  = locale?.startsWith('ar') ?? false;
+
+  const BADGES = [t('badge1'), t('badge2'), t('badge3')];
+
+  const TRUST = [
+    { icon: <Users     size={18} />, label: t('trust1') },
+    { icon: <Zap       size={18} />, label: t('trust2') },
+    { icon: <Lightbulb size={18} />, label: t('trust3') },
+    { icon: <Globe2    size={18} />, label: t('trust4') },
+  ];
+
   return (
     <section className="bg-[#111827] h-screen flex items-center pt-20 pb-8 relative overflow-hidden">
 
@@ -52,7 +53,7 @@ export default function HeroSection() {
 
           {/* ── Left column ── */}
           <motion.div
-            className="lg:col-span-3"
+            className={`lg:col-span-3 ${isRTL ? 'text-right' : 'text-left'}`}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -62,22 +63,21 @@ export default function HeroSection() {
               <h1
                 className="font-[family-name:var(--font-inter)] font-semibold
                            text-3xl sm:text-4xl lg:text-5xl
-                           text-white leading-[1.08]"
+                           text-white leading-[1.08] text-start"
               >
-                Build Your Engineering Team Without Slowing Down
+                {t('headline')}
               </h1>
             </motion.div>
 
             {/* Subheadline */}
             <motion.div variants={itemVariants}>
-              <p className="mt-4 font-[family-name:var(--font-opensans)] text-lg text-white/60 leading-relaxed max-w-xl">
-                Jeelup connects startups and companies with highly skilled
-                engineers who work as dedicated members of your team.
+              <p className="mt-4 font-[family-name:var(--font-opensans)] text-lg text-white/60 leading-relaxed max-w-xl text-start">
+                {t('subheadline')}
               </p>
             </motion.div>
 
             {/* Badges */}
-            <motion.div variants={itemVariants} className="mt-5 flex flex-wrap gap-3">
+            <motion.div variants={itemVariants} className={`mt-5 flex flex-wrap gap-3 ${isRTL ? 'flex-row-reverse justify-end' : ''}`}>
               {BADGES.map((badge) => (
                 <span
                   key={badge}
@@ -92,10 +92,10 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Trust signals */}
-            <motion.div variants={itemVariants} className="mt-6 grid grid-cols-2 gap-x-8 gap-y-3 max-w-sm">
+            <motion.div variants={itemVariants} className={`mt-6 grid grid-cols-2 gap-x-6 gap-y-4 max-w-xs ${isRTL ? 'ml-auto' : ''}`}>
               {TRUST.map(({ icon, label }) => (
                 <div key={label} className="flex items-center gap-3">
-                  <span className="text-brand-teal">{icon}</span>
+                  <span className="text-brand-teal flex-shrink-0">{icon}</span>
                   <span className="text-sm text-white/70">{label}</span>
                 </div>
               ))}
@@ -103,8 +103,17 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <motion.div variants={itemVariants} className="mt-6 flex flex-wrap items-center gap-4">
-              <Button variant="primary"  size="large" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">Book a Call</Button>
-              <Button variant="outline"  size="large" href="#how-it-works">See How It Works</Button>
+              {isRTL ? (
+                <>
+                  <Button variant="outline" size="large" href="#how-it-works">{t('cta2')}</Button>
+                  <Button variant="primary" size="large" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">{t('cta1')}</Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="primary" size="large" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">{t('cta1')}</Button>
+                  <Button variant="outline" size="large" href="#how-it-works">{t('cta2')}</Button>
+                </>
+              )}
             </motion.div>
           </motion.div>
 

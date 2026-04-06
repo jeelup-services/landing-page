@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { useTranslations } from "next-intl";
 
 const container = {
   hidden: {},
@@ -19,6 +20,8 @@ const item = {
 };
 
 export default function CTASection() {
+  const t = useTranslations("cta");
+
   return (
     <section id="cta" className="bg-[#111827] py-24 lg:py-32 relative overflow-hidden">
       {/* Background decorations */}
@@ -54,28 +57,25 @@ export default function CTASection() {
           variants={item}
           className="font-[family-name:var(--font-inter)] font-semibold text-4xl lg:text-6xl text-white leading-tight mt-4"
         >
-          Build Your Engineering Team{" "}
-          <span className="text-brand-teal">Faster</span>
+          {t("headline")}
         </motion.h2>
 
         <motion.p
           variants={item}
           className="mt-6 font-[family-name:var(--font-opensans)] text-white/60 text-lg leading-relaxed max-w-2xl mx-auto"
         >
-          Tell us about your project and the type of engineers you need. Our
-          team will help you find the right talent to accelerate your product
-          development.
+          {t("subheadline")}
         </motion.p>
 
         <motion.div variants={item} className="mt-10">
           <Button variant="primary" size="large" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">
-            Schedule a Call
-            <ArrowRight size={18} className="ml-2" />
+            {t("scheduleCall")}
+            <ArrowRight size={18} className="ml-2 rtl:mr-2 rtl:ml-0 rtl:rotate-180" />
           </Button>
         </motion.div>
 
         <motion.p variants={item} className="mt-4 text-sm text-white/30">
-          No long-term commitment required. Start with one engineer.
+          {t("microCopy")}
         </motion.p>
 
         {/* Divider */}
@@ -96,21 +96,19 @@ export default function CTASection() {
           variants={item}
           className="mt-4 font-[family-name:var(--font-opensans)] text-white/50 text-base max-w-lg mx-auto"
         >
-          Jeelup represents a{" "}
-          <span className="text-white font-medium">new generation of engineers</span>{" "}
-          building alongside founders.
+          {t("trustLine")}
         </motion.p>
 
         <motion.p
           variants={item}
           className="mt-8 font-[family-name:var(--font-inter)] font-semibold text-2xl text-white"
         >
-          Start Building With Jeelup.
+          {t("finalHeadline")}
         </motion.p>
 
         <motion.div variants={item} className="mt-6">
           <Button variant="primary" href="https://calendly.com/jeelup/book-a-call" target="_blank" rel="noopener noreferrer">
-            Book a Call
+            {t("bookACall")}
           </Button>
         </motion.div>
       </motion.div>

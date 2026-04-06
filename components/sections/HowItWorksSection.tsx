@@ -1,41 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const steps = [
-  {
-    number: 1,
-    title: "Tell us what you need",
-    body: "Share your technology stack and the role you want to hire.",
-  },
-  {
-    number: 2,
-    title: "Review selected engineers",
-    body: "We introduce candidates whose experience matches your needs.",
-  },
-  {
-    number: 3,
-    title: "Deploy your developer",
-    body: "Your engineer joins your team and begins contributing immediately.",
-  },
-  {
-    number: 4,
-    title: "Scale your team",
-    body: "Expand your engineering capacity as your company grows.",
-  },
-];
+import { useTranslations, useLocale } from "next-intl";
 
 export default function HowItWorksSection() {
+  const t = useTranslations("howItWorks");
+  const locale = useLocale();
+  const isRTL = locale?.startsWith('ar') ?? false;
+
+  const steps = [
+    { number: 1, title: t("step1Title"), body: t("step1Body") },
+    { number: 2, title: t("step2Title"), body: t("step2Body") },
+    { number: 3, title: t("step3Title"), body: t("step3Body") },
+    { number: 4, title: t("step4Title"), body: t("step4Body") },
+  ];
+
+  const displaySteps = isRTL ? [...steps].reverse() : steps;
+
   return (
     <section id="how-it-works" className="bg-[#0D1117] py-12 lg:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-white text-center mb-16">
-          How It Works
+          {t("headline")}
         </h2>
 
         {/* Desktop Stepper */}
         <div className="hidden lg:block relative max-w-5xl mx-auto">
-          <div className="flex items-start justify-between relative">
+          <div className="flex items-start justify-between relative rtl:flex-row-reverse" dir={isRTL ? 'rtl' : 'ltr'}>
             {/* Animated connector line */}
             <motion.div
               className="absolute top-6 left-[10%] right-[10%] h-px border-t border-dashed border-brand-teal/30"
@@ -46,7 +37,7 @@ export default function HowItWorksSection() {
               viewport={{ once: true }}
             />
 
-            {steps.map((step, index) => (
+            {displaySteps.map((step, index) => (
               <motion.div
                 key={step.number}
                 className="flex-1 flex flex-col items-center text-center px-4"
@@ -71,10 +62,10 @@ export default function HowItWorksSection() {
 
         {/* Mobile Stepper */}
         <div className="flex flex-col lg:hidden space-y-0 max-w-sm mx-auto">
-          {steps.map((step, index) => (
+          {displaySteps.map((step, index) => (
             <motion.div
               key={step.number}
-              className="flex items-start gap-5"
+              className="flex items-start gap-5 rtl:flex-row-reverse"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
@@ -92,8 +83,8 @@ export default function HowItWorksSection() {
 
               {/* Right side */}
               <div className={index < steps.length - 1 ? "pb-8" : ""}>
-                <p className="font-semibold text-base text-white">{step.title}</p>
-                <p className="text-sm text-white/50 mt-1 leading-relaxed">
+                <p className="font-semibold text-base text-white text-start">{step.title}</p>
+                <p className="text-sm text-white/50 mt-1 leading-relaxed text-start">
                   {step.body}
                 </p>
               </div>

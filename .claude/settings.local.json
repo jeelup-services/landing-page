@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next-intl/package.json'\\).version\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); exports=d.get\\('exports',{}\\); [print\\(k\\) for k in exports.keys\\(\\)]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(k\\) for k in d.get\\('exports',{}\\).keys\\(\\)]\")",
+      "Bash(node -e \"const p=require\\('./node_modules/next-intl/package.json'\\); console.log\\(JSON.stringify\\(Object.keys\\(p.exports||{}\\), null, 2\\)\\)\")",
+      "Bash(node -e ':*)",
+      "Bash(node:*)"
     ]
   }
 }

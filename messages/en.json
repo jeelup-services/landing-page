@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Home",
+    "howItWorks": "How it Works",
+    "talent": "Talent",
+    "whyJeelup": "Why Jeelup",
+    "about": "About",
+    "contact": "Contact",
+    "bookACall": "Book a Call"
+  },
+  "hero": {
+    "headline": "Build Your Engineering Team Without Slowing Down",
+    "subheadline": "Jeelup connects startups and companies with highly skilled engineers who work as dedicated members of your team.",
+    "badge1": "Startup-minded builders",
+    "badge2": "Fast deployment",
+    "badge3": "Seamless collaboration",
+    "trust1": "Dedicated engineers",
+    "trust2": "Fast team deployment",
+    "trust3": "Startup mindset",
+    "trust4": "Arabic · English · French",
+    "cta1": "Book a Call",
+    "cta2": "See How It Works"
+  },
+  "problem": {
+    "headline": "Hiring Developers Shouldn't Slow Down Your Company",
+    "intro": "Growing companies face the same hiring challenges:",
+    "pain1": "Finding strong engineers quickly",
+    "pain2": "Managing recruitment delays",
+    "pain3": "Keeping development costs under control",
+    "pain4": "Maintaining team productivity while scaling",
+    "closing": "Traditional outsourcing often leads to disconnected teams and slow execution. Founders need engineers who work WITH them, not outside their company."
+  },
+  "meet": {
+    "headline": "Meet Jeelup",
+    "p1": "Jeelup deploys skilled engineers who integrate directly into your team.",
+    "p2": "Instead of freelancers or distant outsourcing agencies, you work with dedicated builders who collaborate with your engineers, product managers, and founders every day.",
+    "p3": "Our engineers understand the pace and ownership required to build and scale modern technology products.",
+    "highlight": "dedicated builders who collaborate",
+    "trust": "Not a freelancer. Not an agency. A team extension.",
+    "pill1": "Deployed in days",
+    "pill2": "Startup-tested"
+  },
+  "why": {
+    "headline": "Why Companies Choose Jeelup",
+    "card1Title": "Startup Mindset",
+    "card1Body": "Our engineers understand product development cycles, iteration, and the speed required to build startups.",
+    "card2Title": "Dedicated Team Members",
+    "card2Body": "Each engineer works as part of your team, contributing directly to your product and roadmap.",
+    "card3Title": "Multilingual Collaboration",
+    "card3Body": "Our engineers communicate fluently in Arabic, English, and French — making collaboration seamless.",
+    "card4Title": "Fast Deployment",
+    "card4Body": "Traditional hiring takes months. Jeelup helps companies add engineers within days, allowing teams to move faster."
+  },
+  "tech": {
+    "headline": "Engineering Talent Across Key Technologies",
+    "col1Title": "Software Engineering",
+    "col1Role1": "Frontend Development",
+    "col1Role2": "Backend Development",
+    "col1Role3": "Full-Stack Development",
+    "col2Title": "Mobile Development",
+    "col2Role1": "iOS / Android",
+    "col2Role2": "Cross-Platform Development",
+    "col3Title": "AI & Data",
+    "col3Role1": "AI Engineering",
+    "col3Role2": "Machine Learning",
+    "col3Role3": "Data Engineering"
+  },
+  "howItWorks": {
+    "headline": "How It Works",
+    "step1Title": "Tell us what you need",
+    "step1Body": "Share your technology stack and the role you want to hire.",
+    "step2Title": "Review selected engineers",
+    "step2Body": "We introduce candidates whose experience matches your needs.",
+    "step3Title": "Deploy your developer",
+    "step3Body": "Your engineer joins your team and begins contributing immediately.",
+    "step4Title": "Scale your team",
+    "step4Body": "Expand your engineering capacity as your company grows."
+  },
+  "whoWeWorkWith": {
+    "headline": "Who Jeelup Works With",
+    "subheadline": "We partner with ambitious teams.",
+    "client1": "Startups",
+    "client2": "Technology Companies",
+    "client3": "Product Teams",
+    "client4": "Scaling Businesses"
+  },
+  "founder": {
+    "headline": "Designed for Founders and Product Builders.",
+    "p1": "Jeelup was built from the experience of working closely with technology startups and product teams.",
+    "p2": "We understand the challenges founders face:",
+    "check1": "Launching products quickly",
+    "check2": "Scaling engineering teams",
+    "check3": "Maintaining technical quality",
+    "check4": "Managing growth while controlling operational complexity",
+    "closing": "Our goal is simple: help companies build faster with the right engineers."
+  },
+  "cta": {
+    "headline": "Build Your Engineering Team Faster",
+    "subheadline": "Tell us about your project and the type of engineers you need. Our team will help you find the right talent to accelerate your product development.",
+    "scheduleCall": "Schedule a Call",
+    "microCopy": "No long-term commitment required. Start with one engineer.",
+    "trustLine": "Jeelup represents a new generation of engineers building alongside founders.",
+    "finalHeadline": "Start Building With Jeelup.",
+    "bookACall": "Book a Call"
+  },
+  "footer": {
+    "tagline": "Unfreezing potential. Cultivating founder-engineers.",
+    "howItWorks": "How It Works",
+    "talent": "Talent",
+    "whyJeelup": "Why Jeelup",
+    "about": "About",
+    "contact": "Contact",
+    "copyright": "© 2025 Jeelup. All rights reserved."
+  }
+}

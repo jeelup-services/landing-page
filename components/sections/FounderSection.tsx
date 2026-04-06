@@ -3,16 +3,20 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
-
-const checklist = [
-  "Launching products quickly",
-  "Scaling engineering teams",
-  "Maintaining technical quality",
-  "Managing growth while controlling operational complexity",
-];
-
+import { useTranslations, useLocale } from "next-intl";
 
 export default function FounderSection() {
+  const t = useTranslations("founder");
+  const locale = useLocale();
+  const isRTL = locale?.startsWith('ar') ?? false;
+
+  const checklist = [
+    t("check1"),
+    t("check2"),
+    t("check3"),
+    t("check4"),
+  ];
+
   return (
     <section id="about" className="bg-[#0D1117] py-12 lg:py-16">
       <div className="max-w-6xl mx-auto px-6">
@@ -23,24 +27,32 @@ export default function FounderSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            dir={isRTL ? 'rtl' : 'ltr'}
+            className="w-full"
           >
-            <h2 className="font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-white leading-tight">
-              Designed for Founders and Product Builders.
+            <h2 className={`font-[family-name:var(--font-inter)] font-semibold text-3xl lg:text-4xl text-white leading-tight ${isRTL ? 'text-right' : 'text-left'}`}>
+              {t("headline")}
             </h2>
 
             <div className="space-y-4 mt-6">
-              <p className="font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed">
-                Jeelup was built from the experience of working closely with
-                technology startups and product teams.
+              <p className={`font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+                {t("p1")}
               </p>
-              <p className="font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed">
-                We understand the challenges founders face:
+              <p className={`font-[family-name:var(--font-opensans)] text-white/60 text-base leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+                {t("p2")}
               </p>
             </div>
 
-            <ul className="mt-8 space-y-3">
+            <ul
+              className="mt-8 space-y-3 w-full"
+              dir={isRTL ? 'rtl' : 'ltr'}
+            >
               {checklist.map((item) => (
-                <li key={item} className="flex items-start gap-3">
+                <li
+                  key={item}
+                  className="flex items-center gap-3"
+                  dir={isRTL ? 'rtl' : 'ltr'}
+                >
                   <CheckCircle2
                     size={18}
                     className="text-brand-teal flex-shrink-0 mt-0.5"
@@ -50,10 +62,8 @@ export default function FounderSection() {
               ))}
             </ul>
 
-            <p className="mt-8 font-[family-name:var(--font-opensans)] text-white/60 text-base">
-              Our goal is simple: help companies{" "}
-              <span className="text-brand-teal font-semibold">build faster</span>{" "}
-              with the right engineers.
+            <p className={`mt-8 font-[family-name:var(--font-opensans)] text-white/60 text-base ${isRTL ? 'text-right' : 'text-left'}`}>
+              {t("closing")}
             </p>
           </motion.div>
 
@@ -66,7 +76,6 @@ export default function FounderSection() {
               alt="Jeelup founders"
               className="rounded-2xl w-full object-cover mb-8"
             />
-
           </div>
         </div>
       </div>

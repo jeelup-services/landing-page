@@ -2,29 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Rocket, Users, Globe2, Zap } from 'lucide-react';
-
-const CARDS = [
-  {
-    Icon: Rocket,
-    title: 'Startup Mindset',
-    body: 'Our engineers understand product development cycles, iteration, and the speed required to build startups.',
-  },
-  {
-    Icon: Users,
-    title: 'Dedicated Team Members',
-    body: 'Each engineer works as part of your team, contributing directly to your product and roadmap.',
-  },
-  {
-    Icon: Globe2,
-    title: 'Multilingual Collaboration',
-    body: 'Our engineers communicate fluently in Arabic, English, and French — making collaboration seamless.',
-  },
-  {
-    Icon: Zap,
-    title: 'Fast Deployment',
-    body: 'Traditional hiring takes months. Jeelup helps companies add engineers within days, allowing teams to move faster.',
-  },
-];
+import { useTranslations } from 'next-intl';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -32,6 +10,15 @@ const cardVariants = {
 };
 
 export default function WhyChooseSection() {
+  const t = useTranslations('why');
+
+  const CARDS = [
+    { Icon: Rocket, title: t('card1Title'), body: t('card1Body') },
+    { Icon: Users,  title: t('card2Title'), body: t('card2Body') },
+    { Icon: Globe2, title: t('card3Title'), body: t('card3Body') },
+    { Icon: Zap,    title: t('card4Title'), body: t('card4Body') },
+  ];
+
   return (
     <section id="why-jeelup" className="bg-[#0D1117] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -45,7 +32,7 @@ export default function WhyChooseSection() {
           className="font-[family-name:var(--font-inter)] font-semibold text-center
                      text-3xl lg:text-5xl text-white mt-2 max-w-2xl mx-auto"
         >
-          Why Companies Choose Jeelup
+          {t('headline')}
         </motion.h2>
 
         {/* Cards grid */}
@@ -73,12 +60,12 @@ export default function WhyChooseSection() {
               </div>
 
               {/* Title */}
-              <h3 className="font-[family-name:var(--font-inter)] font-semibold text-xl text-white mb-3">
+              <h3 className="font-[family-name:var(--font-inter)] font-semibold text-xl text-white mb-3 text-start">
                 {title}
               </h3>
 
               {/* Body */}
-              <p className="font-[family-name:var(--font-opensans)] text-sm text-white/60 leading-relaxed">
+              <p className="font-[family-name:var(--font-opensans)] text-sm text-white/60 leading-relaxed text-start">
                 {body}
               </p>
 
