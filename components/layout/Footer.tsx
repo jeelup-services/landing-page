@@ -56,6 +56,16 @@ export default function Footer() {
             </p>
           </div>
         </div>
+
+        {/* Legal links */}
+        <div className="mt-8 pt-6 border-t border-white/6 flex justify-center gap-6">
+          <Link href="/privacy" className="text-xs text-white/30 hover:text-white transition-colors">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="text-xs text-white/30 hover:text-white transition-colors">
+            Terms of Service
+          </Link>
+        </div>
       </div>
     </footer>
   );

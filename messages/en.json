@@ -111,5 +111,13 @@
     "about": "About",
     "contact": "Contact",
     "copyright": "© 2025 Jeelup. All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: June 2025"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "updated": "Last updated: June 2025"
   }
 }
